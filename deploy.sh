@@ -1,9 +1,17 @@
 # deploy.sh
+###
+ # @Description: 
+ # @Version: 1.0
+ # @Autor: gll
+ # @Date: 2020-11-28 15:49:38
+ # @LastEditors: gll
+ # @LastEditTime: 2020-11-28 15:50:54
+### 
 # 错误时停止
 set -e
 
 # 打包
-npm run build
+npm run build:prod
 
 # 进入目标文件夹
 cd dist
