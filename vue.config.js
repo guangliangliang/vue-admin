@@ -29,6 +29,19 @@ module.exports = {
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
+  /* css: {
+    loaderOptions: {
+      sass: {
+        data: `@import "@/styles/index.scss";`
+      }
+    },
+    // 是否使用css分离插件 ExtractTextPlugin
+    extract: true,
+    // 开启 CSS source maps?
+    sourceMap: false,
+    // 启用 CSS modules for all css / pre-processor files.
+    modules: false
+  }, */
   devServer: {
     port: port,
     open: true,
