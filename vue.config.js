@@ -1,6 +1,9 @@
 'use strict'
 const path = require('path')
 const defaultSettings = require('./src/settings.js')
+let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const CompressionPlugin = require('compression-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -29,20 +32,25 @@ module.exports = {
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
-  /* css: {
+  css: {
     loaderOptions: {
       sass: {
-        data: `@import "@/styles/index.scss";`
+       prependData: 
+       `@import '@/styles/index.scss';`
+      }
+    }
+  },
+  devServer: {
+   proxy: {
+      '/api': {
+        target: 'http://47.100.186.132/your-path/api',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
       }
     },
-    // 是否使用css分离插件 ExtractTextPlugin
-    extract: true,
-    // 开启 CSS source maps?
-    sourceMap: false,
-    // 启用 CSS modules for all css / pre-processor files.
-    modules: false
-  }, */
-  devServer: {
     port: port,
     open: true,
     overlay: {
@@ -55,6 +63,9 @@ module.exports = {
     // provide the app's title in webpack's name field, so that
     // it can be accessed in index.html to inject the correct title.
     name: name,
+    plugins: [
+      // new BundleAnalyzerPlugin()//添加分析页面
+    ],
     resolve: {
       alias: {
         '@': resolve('src')
@@ -72,7 +83,29 @@ module.exports = {
         include: 'initial'
       }
     ])
-
+     // stylelint配置
+     config.plugin('stylelint').use(StyleLintPlugin, [
+        {
+            files: ['**/*.{html,vue,css,sass,scss}'],
+            fix: true, // 自动修复
+            cache: true,
+            emitError: true,
+            failOnError: false
+        }
+    ])
+    if (process.env.NODE_ENV === 'production') {
+        //开启 Gzip
+       /*  const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i;
+        config.plugin('compressionPlugin')
+        .use(new CompressionPlugin({
+            filename: '[path].gz[query]',
+            algorithm: 'gzip',
+            test: productionGzipExtensions,
+            threshold: 10240,
+            minRatio: 0.8,
+            deleteOriginalAssets: true
+        })); */
+    }
     // when there are many pages, it will cause too many meaningless requests
     config.plugins.delete('prefetch')
 

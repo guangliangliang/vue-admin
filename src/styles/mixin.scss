@@ -1,28 +1,35 @@
 @mixin clearfix {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+    &::after {
+        display: table;
+        clear: both;
+        content: '';
+    }
 }
 
 @mixin scrollBar {
-  &::-webkit-scrollbar-track-piece {
-    background: #d3dce6;
-  }
+    &::-webkit-scrollbar-track-piece {
+        background: #d3dce6;
+    }
 
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
 
-  &::-webkit-scrollbar-thumb {
-    background: #99a9bf;
-    border-radius: 20px;
-  }
+    &::-webkit-scrollbar-thumb {
+        background: #99a9bf;
+        border-radius: 20px;
+    }
 }
 
 @mixin relative {
-  position: relative;
-  width: 100%;
-  height: 100%;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+@mixin defaultBotton(){
+    color: white;
+    background-color: red;
+    border: 1px solid white;
 }

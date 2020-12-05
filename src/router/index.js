@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import NProgress from 'nprogress';
 
 Vue.use(Router)
 
@@ -171,6 +172,16 @@ const createRouter = () => new Router({
 })
 
 const router = createRouter()
+
+router.beforeEach((to, from, next) => {
+  NProgress.start();
+   next()
+});
+
+router.afterEach((to, from, next) => {
+  NProgress.done();
+});
+
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {

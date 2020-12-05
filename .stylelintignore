@@ -1,0 +1,5 @@
+**/*.min.css
+**/dist/
+**/vendor/
+**/src/styles/variables.scss
+/_gh_pages/

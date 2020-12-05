@@ -6,6 +6,15 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 
+
+/**
+  package.json
+
+    "generateAnalyzFile": "webpack --profile --json > stats.json",
+    "analyz": "webpack-bundle-analyzer --port 8888 ./dist/stats.json"
+
+ */
+
 import '@/styles/index.scss' // global css
 
 import App from './App'
@@ -28,6 +37,7 @@ if (process.env.NODE_ENV === 'production') {
   mockXHR()
 }
 
+//全局指令
 import importDirective from '@/layout/directive'
 importDirective(Vue)
 
@@ -36,6 +46,13 @@ importDirective(Vue)
 Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
+
+//全局过滤器
+import * as filters from '@/layout/filters'
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
+
 
 Vue.config.productionTip = false
 

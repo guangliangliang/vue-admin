@@ -15,45 +15,37 @@ const getService = (ip) => {
     // withCredentials: true, // send cookies when cross-domain requests
     timeout: 200000 // request timeout
   })
-  // 定义请求次数(用于判断请求是否已经全部响应)
-  let requestCount = 0
-  let loading
-  // (客户端请求前)显示loading
-  function showLoading() {
-    if (requestCount === 0) {
-      loading = Loading.service({
-        lock: true,
-        text: 'Loading',
-        spinner: '',
-        background: 'rgba(0, 0, 0, 0.58)'
-      })
+    // 异常拦截处理器
+  const errorHandler = (error) => {
+    const status = get(error, 'response.status');
+    switch (status) {
+      /* eslint-disable no-param-reassign */
+      case 400: error.message = '请求错误'; break;
+      case 401: error.message = '未授权，请登录'; break;
+      case 403: error.message = '拒绝访问'; break;
+      case 404: error.message = `请求地址出错: ${error.response.config.url}`; break;
+      case 408: error.message = '请求超时'; break;
+      case 500: error.message = '服务器内部错误'; break;
+      case 501: error.message = '服务未实现'; break;
+      case 502: error.message = '网关错误'; break;
+      case 503: error.message = '服务不可用'; break;
+      case 504: error.message = '网关超时'; break;
+      case 505: error.message = 'HTTP版本不受支持'; break;
+      default: break;
+      /* eslint-disabled */
     }
-    requestCount++
-  }
-  let timer
-  // (服务器响应后)尝试隐藏loading
-  function tryHideLoading() {
-    requestCount--
-    // 采用setTimeout是为了解决一个请求结束后紧接着有另一请求发起导致loading闪烁的问题
-    timer = setTimeout(() => {
-      if (requestCount === 0) {
-        loading.close()
-        clearTimeout(timer)
-      }
-    })
-  }
+    return Promise.reject(error);
+  };
+
 
   // request拦截器
   service.interceptors.request.use(config => {
-    // if (config.timeout > 20000) {
-    //     showLoading()
-    // }
     return config
   }, error => {
     // Do something with request error
     console.log(error) // for debug
     Promise.reject(error)
-  })
+  },errorHandler)
   // response interceptor
   service.interceptors.response.use(
     /**
@@ -69,30 +61,14 @@ const getService = (ip) => {
     response => {
       const { status, data: res } = response
       if (res.code !== 200 && status !== 200) {
-        // Message({
-        //   message: res.msg || 'Error',
-        //   type: 'error',
-        //   duration: 3 * 1000
-        // })
         return Promise.reject(new Error(res.message || 'Error'))
       } else {
-        // tryHideLoading()
         return res
       }
-    },
-    error => {
-      console.log('err' + error) // for debug
-      // Message({
-      //   message: error.message,
-      //   type: 'error',
-      //   duration: 3 * 1000
-      // })
-      return Promise.reject(error)
-    }
-  )
+    },errorHandler)
   return service
 }
-const request = getService(process.env.VUE_APP_BASE_API) 
+const request = getService(process.env.VUE_APP_BASE_API)
 export {
   request
 }

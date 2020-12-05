@@ -79,7 +79,7 @@ export default {
 
 <style scoped>
 .line{
-  text-align: center;
+    text-align: center;
 }
 </style>
 
