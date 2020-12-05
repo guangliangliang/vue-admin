@@ -73,11 +73,11 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "node verify-commit-msg.js"
     }
   },
   "gitHooks": {
-    "commit-msg": "node verify-commit-msg.js"
   },
   "lint-staged": {
     "*.{html,vue,css,sass,scss}": [
