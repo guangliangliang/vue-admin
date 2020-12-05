@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: gll
+ * @Date: 2020-12-05 22:26:18
+ * @LastEditors: gll
+ * @LastEditTime: 2020-12-05 23:14:34
+-->
 # vue-admin-template
 
 English | [简体中文](./README-zh.md)
@@ -48,7 +56,7 @@ npm run preview -- --report
 
 # code format check
 npm run lint
-
+  
 # code format check and auto fix
 npm run lint -- --fix
 ```
