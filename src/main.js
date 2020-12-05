@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: gll
+ * @Date: 2020-11-27 16:37:05
+ * @LastEditors: gll
+ * @LastEditTime: 2020-12-05 16:47:55
+ */
 import Vue from 'vue'
 
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
@@ -60,6 +68,19 @@ Object.keys(filters).forEach(key => {
 
 
 Vue.config.productionTip = false
+
+//系统错误捕获
+const errorHandler = (error, vm)=>{
+  console.error('抛出全局异常');
+  console.error(vm);
+  console.error(error);
+  
+}
+Vue.config.errorHandler = errorHandler;
+Vue.prototype.$throw = (error)=> errorHandler(error,this);
+/**
+ * .catch(e =>　this.$throw(e))
+ */
 
 new Vue({
   el: '#app',
