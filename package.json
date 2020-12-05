@@ -74,15 +74,21 @@
     "yorkie": "^2.0.0"
   },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "config": {
     "ghooks": {
-      "commit-msg": "./validate-commit-msg.js"
+      "commit-msg": "validate-commit-msg.js"
     },
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "gitHooks": {
+    "pre-commit": "npm run lint",
+    "commit-msg": "node scripts/verify-commit-msg.js"
   },
   "lint-staged": {
     "*.{html,vue,css,sass,scss}": [
