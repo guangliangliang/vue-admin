@@ -37,41 +37,33 @@ export const constantRoutes = [
     component: () => import('@/views/login/index'),
     hidden: true
   },
-
-  {
-    path: '/404',
-    component: () => import('@/views/404'),
-    hidden: true
-  },
-
   {
     path: '/',
     component: Layout,
     redirect: '/dashboard',
     children: [{
       path: 'dashboard',
-      name: 'Dashboard',
+      name: 'dashboard',
       component: () => import('@/views/dashboard/index'),
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
-
   {
     path: '/example',
     component: Layout,
     redirect: '/example/table',
-    name: 'Example',
+    name: 'example',
     meta: { title: 'Example', icon: 'el-icon-s-help' },
     children: [
       {
         path: 'table',
-        name: 'Table',
+        name: 'table',
         component: () => import('@/views/table/index'),
         meta: { title: 'Table', icon: 'table' }
       },
       {
         path: 'tree',
-        name: 'Tree',
+        name: 'tree',
         component: () => import('@/views/tree/index'),
         meta: { title: 'Tree', icon: 'tree' }
       }
@@ -80,11 +72,12 @@ export const constantRoutes = [
 
   {
     path: '/form',
+    name: 'form',
     component: Layout,
     children: [
       {
         path: 'index',
-        name: 'Form',
+        name: 'formIndex',
         component: () => import('@/views/form/index'),
         meta: { title: 'Form', icon: 'form' }
       }
@@ -95,7 +88,7 @@ export const constantRoutes = [
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
-    name: 'Nested',
+    name: 'nested',
     meta: {
       title: 'Nested',
       icon: 'nested'
@@ -104,31 +97,31 @@ export const constantRoutes = [
       {
         path: 'menu1',
         component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
+        name: 'menu1',
         meta: { title: 'Menu1' },
         children: [
           {
             path: 'menu1-1',
             component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
+            name: 'menu1-1',
             meta: { title: 'Menu1-1' }
           },
           {
             path: 'menu1-2',
             component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
+            name: 'menu1-2',
             meta: { title: 'Menu1-2' },
             children: [
               {
                 path: 'menu1-2-1',
                 component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
+                name: 'menu1-2-1',
                 meta: { title: 'Menu1-2-1' }
               },
               {
                 path: 'menu1-2-2',
                 component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
+                name: 'menu1-2-2',
                 meta: { title: 'Menu1-2-2' }
               }
             ]
@@ -136,7 +129,7 @@ export const constantRoutes = [
           {
             path: 'menu1-3',
             component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
+            name: 'menu1-3',
             meta: { title: 'Menu1-3' }
           }
         ]
@@ -144,14 +137,14 @@ export const constantRoutes = [
       {
         path: 'menu2',
         component: () => import('@/views/nested/menu2/index'),
-        name: 'Menu2',
+        name: 'menu2',
         meta: { title: 'menu2' }
       }
     ]
   },
-
   {
     path: 'external-link',
+    name: 'externalLink',
     component: Layout,
     children: [
       {

@@ -5,6 +5,7 @@
     <breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu">
+      <Language @on-lang-change="setLocal" style="margin-right: 10px;" :lang="local"   />
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
@@ -32,22 +33,33 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters,mapMutations } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
+import Language from '@/layout/components/Sidebar/language'
 
 export default {
   components: {
     Breadcrumb,
-    Hamburger
+    Hamburger,
+    Language
   },
   computed: {
     ...mapGetters([
       'sidebar',
       'avatar'
+    ]),
+    ...mapGetters('app',[
+      'local'
     ])
   },
+  mounted() {
+    console.log(this.local)
+  },
   methods: {
+    ...mapMutations('app',[
+      'setLocal'
+    ]),
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
@@ -85,10 +97,10 @@ export default {
     }
 
     .right-menu {
+        display:flex;
         float: right;
         height: 100%;
         line-height: 50px;
-
         &:focus {
             outline: none;
         }

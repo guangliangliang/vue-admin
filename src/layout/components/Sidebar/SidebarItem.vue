@@ -3,14 +3,13 @@
     <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
         <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{'submenu-title-noDropdown':!isNest}">
-          <item :icon="onlyOneChild.meta.icon||(item.meta&&item.meta.icon)" :title="onlyOneChild.meta.title" />
+          <item :icon="onlyOneChild.meta.icon||(item.meta&&item.meta.icon)" :title="showonlyOneChildTitle" />
         </el-menu-item>
       </app-link>
     </template>
-
     <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
       <template slot="title">
-        <item v-if="item.meta" :icon="item.meta && item.meta.icon" :title="item.meta.title" />
+        <item v-if="item.meta" :icon="item.meta && item.meta.icon" :title="showTitle" />
       </template>
       <sidebar-item
         v-for="child in item.children"
@@ -21,6 +20,7 @@
         class="nest-menu"
       />
     </el-submenu>
+   
   </div>
 </template>
 
@@ -30,7 +30,7 @@ import { isExternal } from '@/utils/validate'
 import Item from './Item'
 import AppLink from './Link'
 import FixiOSBug from './FixiOSBug'
-
+import {showTitle} from '@/utils/utils'
 export default {
   name: 'SidebarItem',
   components: { Item, AppLink },
@@ -55,6 +55,16 @@ export default {
     // TODO: refactor with render function
     this.onlyOneChild = null
     return {}
+  },
+  computed:{
+    showTitle(){
+      let {item} = this
+      return showTitle(item, this)
+    },
+    showonlyOneChildTitle(){
+      let {onlyOneChild} = this
+      return showTitle(onlyOneChild, this)
+    }
   },
   methods: {
     hasOneShowingChild(children = [], parent) {

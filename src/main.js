@@ -41,6 +41,8 @@ if (process.env.NODE_ENV === 'production') {
 import importDirective from '@/layout/directive'
 importDirective(Vue)
 
+//国际化
+import i18n from '@/locale'
 
 // set ElementUI lang to EN
 Vue.use(ElementUI, { locale })
@@ -63,5 +65,6 @@ new Vue({
   el: '#app',
   router,
   store,
+  i18n,
   render: h => h(App)
 })
