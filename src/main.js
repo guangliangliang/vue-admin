@@ -47,6 +47,9 @@ Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
 
+//全局组件
+import singleIndex from '@/components/Singles'
+Vue.use(singleIndex)
 //全局过滤器
 import * as filters from '@/layout/filters'
 Object.keys(filters).forEach(key => {
