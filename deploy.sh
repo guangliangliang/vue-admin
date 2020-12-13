@@ -5,7 +5,7 @@
  # @Autor: gll
  # @Date: 2020-11-28 15:49:38
  # @LastEditors: gll
- # @LastEditTime: 2020-11-28 15:50:54
+ # @LastEditTime: 2020-12-13 19:35:19
 ### 
 # 错误时停止
 set -e
@@ -21,7 +21,7 @@ cd dist
 git init
 git add -A
 git commit -m 'deploy'
-
+# https://github.com/guangliangliang/vue-admin
 # 提交到 https://github.com:guangliangliang/vue-admin 项目的 gh-pages 分支
 git push -f git@github.com:guangliangliang/vue-admin.git master:gh-pages
 
