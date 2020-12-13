@@ -5,6 +5,31 @@
 @import './sidebar.scss';
 
 
+/*
+  animate.css动画使用
+    <transition
+      class="animate__animated"
+      enter-active-class="animate__animated animate__fadeIn"
+      leave-active-class="animate__animated animate__fadeOut"
+      :duration="{ enter: 200, leave: 400 }"
+    >
+      <div v-show="testFlag" class="test" @click="testFlag=false">test</div>
+    </transition>
+    <transition
+      enter-active-class="animate__animated animate__fadeIn"
+      leave-active-class="animate__animated animate__fadeOut"
+      :duration="{ enter: 200, leave: 400 }"
+    >      <div v-show="!testFlag" class="test" @click="testFlag=true">test222</div>
+    </transition>
+    <input
+      v-show="show"
+      ref="input"
+      class="animate__animated"
+      :class="{'animate__shakeX':show,'animate__shakeX':show}"
+    >
+*/
+// 使用mixin @include transform(rotate(180deg));   @include globalHeaderBg()
+
 
 body {
     height: 100%;

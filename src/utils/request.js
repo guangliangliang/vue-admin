@@ -4,7 +4,7 @@
  * @Autor: gll
  * @Date: 2020-05-24 15:52:09
  * @LastEditors: gll
- * @LastEditTime: 2020-12-11 14:52:07
+ * @LastEditTime: 2020-12-13 10:30:13
  */
 import axios from 'axios'
 import { Message, Loading } from 'element-ui'
@@ -62,7 +62,7 @@ const getService = (ip) => {
       } else {
         return res
       }
-    }, errorHandler)
+    })
   return service
 }
 const request = getService(process.env.VUE_APP_BASE_API)
