@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @Version: 1.0
+ * @Autor: gll
+ * @Date: 2020-11-27 16:37:05
+ * @LastEditors: gll
+ * @LastEditTime: 2020-12-13 10:13:45
+-->
 <template>
   <div :class="{'has-logo':showLogo}">
     <logo v-if="showLogo" :collapse="isCollapse" />
@@ -26,9 +34,6 @@ import variables from '@/styles/variables.scss'
 
 export default {
   components: { SidebarItem, Logo },
-  mounted() {
-    console.log(this.routes)
-  },
   computed: {
     ...mapGetters([
       'sidebar'
@@ -54,6 +59,9 @@ export default {
     isCollapse() {
       return !this.sidebar.opened
     }
+  },
+  mounted() {
+    console.log(this.routes)
   }
 }
 </script>

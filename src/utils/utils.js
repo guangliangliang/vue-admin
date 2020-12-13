@@ -1,6 +1,6 @@
 
 import config from '@/config'
-const {  useI18n } = config
+const { useI18n } = config
 
 /* 函数节流 */
 export function throttle(fn, interval) {
@@ -204,19 +204,15 @@ is.types.map(item => {
   })(item)
 })
 
-
-
 const showTitle = (item, vm) => {
   let { title } = item.meta
   if (!title) return
   if (useI18n) {
-      title = vm.$t(item.name)
+    title = vm.$t(item.name)
   } else {
     title = (item.meta && item.meta.title) || item.name
   }
   return title
 }
 
-
-
-export { recursion, recursionCname, recursionEname, is,showTitle }
+export { recursion, recursionCname, recursionEname, is, showTitle }

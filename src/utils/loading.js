@@ -1,34 +1,42 @@
-import { Loading } from 'element-ui';
+/*
+ * @Description:
+ * @Version: 1.0
+ * @Autor: gll
+ * @Date: 2020-12-05 12:00:40
+ * @LastEditors: gll
+ * @LastEditTime: 2020-12-11 14:39:52
+ */
+import { Loading } from 'element-ui'
 
-let loadingCount = 0;
-let loading;
+let loadingCount = 0
+let loading
 
 const startLoading = () => {
   loading = Loading.service({
     lock: true,
     text: '加载中……',
     background: 'rgba(0, 0, 0, 0.7)'
-  });
-};
+  })
+}
 
 const endLoading = () => {
-  loading.close();
-};
+  loading.close()
+}
 
 const showLoading = () => {
   if (loadingCount === 0) {
-    startLoading();
+    startLoading()
   }
-  loadingCount += 1;
-};
+  loadingCount += 1
+}
 
 const hideLoading = () => {
   if (loadingCount <= 0) {
-    return;
+    return
   }
-  loadingCount -= 1;
+  loadingCount -= 1
   if (loadingCount === 0) {
-    endLoading();
+    endLoading()
   }
-};
-export {showLoading,hideLoading}
+}
+export { showLoading, hideLoading }

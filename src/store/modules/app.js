@@ -5,7 +5,7 @@ const state = {
     opened: Cookies.get('sidebarStatus') ? !!+Cookies.get('sidebarStatus') : true,
     withoutAnimation: false
   },
-  local:'zh-CN',
+  local: 'zh-CN',
   device: 'desktop'
 }
 const getters = {
@@ -29,9 +29,9 @@ const mutations = {
   TOGGLE_DEVICE: (state, device) => {
     state.device = device
   },
-  setLocal (state, lang) {
+  setLocal(state, lang) {
     state.local = lang
-  },
+  }
 }
 
 const actions = {

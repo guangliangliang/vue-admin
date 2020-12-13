@@ -13,5 +13,5 @@ export default {
   'menu1-2-2': 'menu1-2-2',
   'menu1-3': 'menu1-3',
   menu2: 'menu2',
-  externalLink: 'externalLink',
+  externalLink: 'externalLink'
 }

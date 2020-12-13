@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @Version: 1.0
+ * @Autor: gll
+ * @Date: 2020-11-27 16:37:05
+ * @LastEditors: gll
+ * @LastEditTime: 2020-12-11 14:40:27
+-->
 <template>
   <div class="app-container">
     <el-table
@@ -40,7 +48,7 @@
         </template>
       </el-table-column>
     </el-table>
-  
+
   </div>
 </template>
 

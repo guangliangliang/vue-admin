@@ -4,7 +4,7 @@
  * @Autor: gll
  * @Date: 2020-07-11 13:21:26
  * @LastEditors: gll
- * @LastEditTime: 2020-07-12 17:06:59
+ * @LastEditTime: 2020-12-11 14:40:16
  */
 import store from '@/store'
 /**
@@ -20,6 +20,5 @@ const getGetters = () => {
 const getLocal = () => {
   return getGetters()?.['app/local'] ?? {}
 }
-
 
 export { getGetters, getLocal }

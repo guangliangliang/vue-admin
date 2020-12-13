@@ -19,6 +19,7 @@
     "commit": "git-cz"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "axios": "0.18.1",
     "core-js": "3.6.5",
     "element-ui": "2.13.2",
@@ -75,20 +76,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "commit-msg": "node verify-commit.js"
     }
-  },
-  "config": {
-    "ghooks": {
-      "commit-msg": "validate-commit-msg.js"
-    },
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "gitHooks": {
-    "pre-commit": "npm run lint",
-    "commit-msg": "node scripts/verify-commit-msg.js"
   },
   "lint-staged": {
     "*.{html,vue,css,sass,scss}": [

@@ -1,10 +1,10 @@
 /*
- * @Description: 
+ * @Description:
  * @Version: 1.0
  * @Autor: gll
  * @Date: 2020-11-27 16:37:05
  * @LastEditors: gll
- * @LastEditTime: 2020-12-05 16:47:55
+ * @LastEditTime: 2020-12-11 13:53:36
  */
 import Vue from 'vue'
 
@@ -14,7 +14,6 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 
-
 /**
   package.json
 
@@ -22,7 +21,7 @@ import locale from 'element-ui/lib/locale/lang/en' // lang i18n
     "analyz": "webpack-bundle-analyzer --port 8888 ./dist/stats.json"
 
  */
-
+import animated from 'animate.css' // npm install animate.css --save安装，在引入
 import '@/styles/index.scss' // global css
 
 import App from './App'
@@ -45,11 +44,11 @@ if (process.env.NODE_ENV === 'production') {
   mockXHR()
 }
 
-//全局指令
+// 全局指令
 import importDirective from '@/layout/directive'
 importDirective(Vue)
 
-//国际化
+// 国际化
 import i18n from '@/locale'
 
 // set ElementUI lang to EN
@@ -57,30 +56,29 @@ Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
 
-//全局组件
+// 全局组件
 import singleIndex from '@/components/Singles'
 Vue.use(singleIndex)
-//全局过滤器
+// 全局过滤器
 import * as filters from '@/layout/filters'
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
 
-
 Vue.config.productionTip = false
 
-//系统错误捕获
-const errorHandler = (error, vm)=>{
-  console.error('抛出全局异常');
-  console.error(vm);
-  console.error(error);
-  
+// 系统错误捕获
+const errorHandler = (error, vm) => {
+  console.error('抛出全局异常')
+  console.error(vm)
+  console.error(error)
 }
-Vue.config.errorHandler = errorHandler;
-Vue.prototype.$throw = (error)=> errorHandler(error,this);
+Vue.config.errorHandler = errorHandler
+Vue.prototype.$throw = (error) => errorHandler(error, this)
 /**
  * .catch(e =>　this.$throw(e))
  */
+Vue.use(animated)
 
 new Vue({
   el: '#app',

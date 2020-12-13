@@ -5,7 +5,7 @@
     <breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu">
-      <Language @on-lang-change="setLocal" style="margin-right: 10px;" :lang="local"   />
+      <Language style="margin-right: 10px;" :lang="local" @on-lang-change="setLocal" />
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { mapGetters,mapMutations } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 import Language from '@/layout/components/Sidebar/language'
@@ -49,7 +49,7 @@ export default {
       'sidebar',
       'avatar'
     ]),
-    ...mapGetters('app',[
+    ...mapGetters('app', [
       'local'
     ])
   },
@@ -57,7 +57,7 @@ export default {
     console.log(this.local)
   },
   methods: {
-    ...mapMutations('app',[
+    ...mapMutations('app', [
       'setLocal'
     ]),
     toggleSideBar() {

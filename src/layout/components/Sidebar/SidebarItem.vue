@@ -20,7 +20,7 @@
         class="nest-menu"
       />
     </el-submenu>
-   
+
   </div>
 </template>
 
@@ -30,7 +30,7 @@ import { isExternal } from '@/utils/validate'
 import Item from './Item'
 import AppLink from './Link'
 import FixiOSBug from './FixiOSBug'
-import {showTitle} from '@/utils/utils'
+import { showTitle } from '@/utils/utils'
 export default {
   name: 'SidebarItem',
   components: { Item, AppLink },
@@ -56,13 +56,13 @@ export default {
     this.onlyOneChild = null
     return {}
   },
-  computed:{
-    showTitle(){
-      let {item} = this
+  computed: {
+    showTitle() {
+      const { item } = this
       return showTitle(item, this)
     },
-    showonlyOneChildTitle(){
-      let {onlyOneChild} = this
+    showonlyOneChildTitle() {
+      const { onlyOneChild } = this
       return showTitle(onlyOneChild, this)
     }
   },
