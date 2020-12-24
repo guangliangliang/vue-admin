@@ -4,7 +4,7 @@
  * @Autor: gll
  * @Date: 2020-12-05 14:37:22
  * @LastEditors: gll
- * @LastEditTime: 2020-12-11 14:41:08
+ * @LastEditTime: 2020-12-24 14:30:23
  */
 export default {
   dashboard: '主页',
@@ -12,6 +12,12 @@ export default {
   table: '表格',
   tree: '树',
   form: '表单',
+  work: '工作页',
+  analyse: '分析页',
+  closeLeft: '关闭左侧',
+  closeRight: '关闭右侧',
+  closeOthers: '关闭其他',
+  refresh: '刷新',
   formIndex: '第一个表单呢',
   nested: '内嵌的',
   menu1: '目录1',

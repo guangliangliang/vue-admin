@@ -5,6 +5,7 @@
     <breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu">
+      <FullScreen />&nbsp;&nbsp;&nbsp;
       <Language style="margin-right: 10px;" :lang="local" @on-lang-change="setLocal" />
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -37,12 +38,13 @@ import { mapGetters, mapMutations } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 import Language from '@/layout/components/Sidebar/language'
-
+import FullScreen from '@/layout/components/Sidebar/FullScreen'
 export default {
   components: {
     Breadcrumb,
     Hamburger,
-    Language
+    Language,
+    FullScreen
   },
   computed: {
     ...mapGetters([
@@ -53,8 +55,10 @@ export default {
       'local'
     ])
   },
-  mounted() {
-    console.log(this.local)
+  data() {
+    return {
+      isFullscreen: false // false非全屏状态、true全屏状态
+    }
   },
   methods: {
     ...mapMutations('app', [
@@ -101,6 +105,8 @@ export default {
         float: right;
         height: 100%;
         line-height: 50px;
+        justify-content: center;
+        align-items: center;
         &:focus {
             outline: none;
         }

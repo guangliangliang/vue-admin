@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: gll
+ * @Date: 2020-12-24 09:46:02
+ * @LastEditors: gll
+ * @LastEditTime: 2020-12-24 09:58:25
+ */
 import Vue from 'vue'
 import Router from 'vue-router'
 import NProgress from 'nprogress'
@@ -40,12 +48,21 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
-    children: [{
-      path: 'dashboard',
-      name: 'dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+    name: 'dashboard',
+    redirect: '/dashboard/work',
+    meta: { title: 'dashboard', icon: 'dashboard' },
+    children: [
+    {
+      path: '/dashboard/work',
+      name: 'work',
+      component: () => import('@/views/dashboard/work/index'),
+      meta: { title: 'work', icon: 'table' }
+    },
+    {
+      path: '/dashboard/analyse',
+      name: 'analyse',
+      component: () => import('@/views/dashboard/analyse/index'),
+      meta: { title: 'analyse', icon: 'tree' }
     }]
   },
   {

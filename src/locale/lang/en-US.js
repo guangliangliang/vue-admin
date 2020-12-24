@@ -1,9 +1,23 @@
+/*
+ * @Description:
+ * @Version: 1.0
+ * @Autor: gll
+ * @Date: 2020-12-24 09:46:02
+ * @LastEditors: gll
+ * @LastEditTime: 2020-12-24 14:29:56
+ */
 export default {
   dashboard: 'dashboard',
   example: 'example',
   table: 'table',
   tree: 'tree',
   form: 'form',
+  work: 'work',
+  analyse: 'analyse',
+  closeLeft: 'closeLeft',
+  closeRight: 'closeRight',
+  closeOthers: 'closeOthers',
+  refresh: 'refresh',
   formIndex: 'formIndex',
   nested: 'nested',
   menu1: 'menu1',

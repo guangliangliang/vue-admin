@@ -4,11 +4,11 @@
  * @Autor: gll
  * @Date: 2020-11-27 16:37:05
  * @LastEditors: gll
- * @LastEditTime: 2020-12-13 10:13:45
+ * @LastEditTime: 2020-12-24 14:17:37
 -->
 <template>
   <div :class="{'has-logo':showLogo}">
-    <logo v-if="showLogo" :collapse="isCollapse" />
+    <logo /><!--  :collapse="isCollapse" -->
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"

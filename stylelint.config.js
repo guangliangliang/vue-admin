@@ -2,17 +2,17 @@
 module.exports = {
     defaultSeverity: 'error',
     extends: [
-        'stylelint-config-standard',
+        /* 'stylelint-config-standard',
         'stylelint-config-rational-order', // 属性排序规则
-        'stylelint-config-prettier'
+        'stylelint-config-prettier' */
     ],
     plugins: [
-        'stylelint-order',
+        /* 'stylelint-order',
         'stylelint-scss',
-        'stylelint-declaration-block-no-ignored-properties'
+        'stylelint-declaration-block-no-ignored-properties' */
     ],
     rules: {
-        // 不要使用已被 autoprefixer 支持的浏览器前缀
+       /*  // 不要使用已被 autoprefixer 支持的浏览器前缀
         'media-feature-name-no-vendor-prefix': true,
         'at-rule-no-vendor-prefix': true,
         'selector-no-vendor-prefix': true,
@@ -47,8 +47,8 @@ module.exports = {
                     "export"
                 ]
             }
-        ],
-        indentation: 4
+        ], 
+        indentation: 4*/
     },
-    ignoreFiles: ['dist/**','**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts']
+    ignoreFiles: ['dist/**','**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts'] 
 }

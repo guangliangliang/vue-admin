@@ -1,15 +1,21 @@
+<!--
+ * @Description:
+ * @Version: 1.0
+ * @Autor: gll
+ * @Date: 2020-12-24 09:46:02
+ * @LastEditors: gll
+ * @LastEditTime: 2020-12-24 14:17:52
+-->
 <template>
   <div class="sidebar-logo-container" :class="{'collapse':collapse}">
-    <transition name="sidebarLogoFade">
-      <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
-        <img v-if="logo" :src="logo" class="sidebar-logo">
-        <h1 v-else class="sidebar-title">{{ title }} </h1>
-      </router-link>
-      <router-link v-else key="expand" class="sidebar-logo-link" to="/">
-        <img v-if="logo" :src="logo" class="sidebar-logo">
-        <h1 class="sidebar-title">{{ title }} </h1>
-      </router-link>
-    </transition>
+    <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
+      <img v-if="logo" :src="logo" class="sidebar-logo">
+      <h1 v-else class="sidebar-title">{{ title }} </h1>
+    </router-link>
+    <router-link v-else key="expand" class="sidebar-logo-link" to="/">
+      <img v-if="logo" :src="logo" class="sidebar-logo">
+      <h1 class="sidebar-title">{{ title }} </h1>
+    </router-link>
   </div>
 </template>
 
@@ -24,7 +30,7 @@ export default {
   },
   data() {
     return {
-      title: 'Vue Admin Template',
+      title: 'Vue Admin',
       logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'
     }
   }

@@ -214,5 +214,42 @@ const showTitle = (item, vm) => {
   }
   return title
 }
+// 全屏
+function fullScreen() {
+  var element = document.documentElement
+  if (element.requestFullscreen) {
+    element.requestFullscreen()
+  } else if (element.msRequestFullscreen) {
+    element.msRequestFullscreen()
+  } else if (element.mozRequestFullScreen) {
+    element.mozRequestFullScreen()
+  } else if (element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen()
+  }
+}
 
-export { recursion, recursionCname, recursionEname, is, showTitle }
+// 退出全屏
+function exitFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen()
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen()
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen()
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen()
+  }
+}
+
+/**
+ * [isFullscreen 判断浏览器是否全屏]
+ * @return [全屏则返回当前调用全屏的元素,不全屏返回false]
+ */
+function isFullscreen() {
+  return document.fullscreenElement    ||
+     document.msFullscreenElement  ||
+     document.mozFullScreenElement ||
+     document.webkitFullscreenElement || false
+}
+
+export { recursion, recursionCname, fullScreen, exitFullscreen, isFullscreen, recursionEname, is, showTitle }
