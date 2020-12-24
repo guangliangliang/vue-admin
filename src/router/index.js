@@ -1,10 +1,10 @@
 /*
- * @Description: 
+ * @Description:
  * @Version: 1.0
  * @Autor: gll
  * @Date: 2020-12-24 09:46:02
  * @LastEditors: gll
- * @LastEditTime: 2020-12-24 09:58:25
+ * @LastEditTime: 2020-12-24 17:06:05
  */
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -52,18 +52,18 @@ export const constantRoutes = [
     redirect: '/dashboard/work',
     meta: { title: 'dashboard', icon: 'dashboard' },
     children: [
-    {
-      path: '/dashboard/work',
-      name: 'work',
-      component: () => import('@/views/dashboard/work/index'),
-      meta: { title: 'work', icon: 'table' }
-    },
-    {
-      path: '/dashboard/analyse',
-      name: 'analyse',
-      component: () => import('@/views/dashboard/analyse/index'),
-      meta: { title: 'analyse', icon: 'tree' }
-    }]
+      {
+        path: '/dashboard/work',
+        name: 'work',
+        component: () => import('@/views/dashboard/work/index'),
+        meta: { title: 'work', icon: 'table' }
+      },
+      {
+        path: '/dashboard/analyse',
+        name: 'analyse',
+        component: () => import('@/views/dashboard/analyse/index'),
+        meta: { title: 'analyse', icon: 'tree' }
+      }]
   },
   {
     path: '/example',

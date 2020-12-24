@@ -1,5 +1,5 @@
 <template>
-  <div class="el_table_parent">
+  <div class="tab_header">
     <Contextmenu
       :item-list="menuItemList"
       :visible.sync="menuVisible"
@@ -136,3 +136,16 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+
+</style>
+<style lang="scss">
+  .tab_header{
+     .el-tabs__nav{
+      @include bgWhite();
+    }
+    .el-tabs__header{
+      margin:0;
+    }
+  }
+</style>

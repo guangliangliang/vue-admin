@@ -4,10 +4,10 @@
  * @Autor: gll
  * @Date: 2020-12-24 09:46:02
  * @LastEditors: gll
- * @LastEditTime: 2020-12-24 13:33:38
+ * @LastEditTime: 2020-12-24 15:39:11
 -->
 <template>
-  <section class="app-main">
+  <div class="app-main">
     <div class="app_main_top">
       <TabHeader />
     </div>
@@ -21,7 +21,7 @@
         <router-view :key="key" />
       </transition>
     </div>
-  </section>
+  </div>
 </template>
 <script>
 import TabHeader from '@/layout/components/TabHeader'
@@ -44,12 +44,13 @@ export default {
     width: 100%;
     min-height: calc(100vh - 50px);
     overflow: hidden;
+    background: rgb(240, 242, 245);
     .app_main_top{
-        @include defaultWH(100%,10%);
-        padding:20px;
+        @include defaultWH(10%);
+        padding:20px 20px 0 20px;
     };
     .app_main_content{
-        @include defaultWH(100%,90%);
+        @include defaultWH(90%);
     }
 }
 .fixed-header+.app-main {
