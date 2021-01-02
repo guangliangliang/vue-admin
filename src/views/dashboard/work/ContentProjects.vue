@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: gll
  * @Date: 2020-11-27 16:37:05
- * @LastEditors: gll
- * @LastEditTime: 2020-12-24 17:49:20
+ * @LastEditors: unicom
+ * @LastEditTime: 2021-01-02 11:38:55
 -->
 <template>
   <div class="content_projects">
@@ -50,7 +50,8 @@ export default {
   }
   .content_projects{
     .content_projects_single{
-          padding: 20px;
+          margin: 10px;
+          padding: 10px;
           border:1px solid rgb(240, 240, 240);
          &:hover{
            box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);

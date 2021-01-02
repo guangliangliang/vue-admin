@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: gll
  * @Date: 2020-11-27 16:37:05
- * @LastEditors: gll
- * @LastEditTime: 2020-12-11 13:53:36
+ * @LastEditors: unicom
+ * @LastEditTime: 2021-01-02 14:27:02
  */
 import Vue from 'vue'
 
@@ -66,7 +66,8 @@ Object.keys(filters).forEach(key => {
 })
 
 Vue.config.productionTip = false
-
+const echarts = require('echarts')
+Vue.prototype.$echarts = echarts
 // 系统错误捕获
 const errorHandler = (error, vm) => {
   console.error('抛出全局异常')

@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: gll
  * @Date: 2020-05-11 10:34:23
- * @LastEditors: gll
- * @LastEditTime: 2020-12-24 17:38:14
+ * @LastEditors: unicom
+ * @LastEditTime: 2021-01-02 13:15:30
  -->
 <template>
   <div class="div_box_parent">
@@ -33,6 +33,7 @@ export default {
 .div_box_parent {
     @include defaultWH();
     @include bgWhite();
+    margin: 20px 0px;
     .div_box_parent_top {
       @include defaultWH(70px);
       @include defaultFlex(flex-start);
