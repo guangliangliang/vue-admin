@@ -3,11 +3,10 @@
  * @Version: 1.0
  * @Autor: gll
  * @Date: 2020-05-24 15:52:09
- * @LastEditors: gll
- * @LastEditTime: 2020-12-13 10:30:13
+ * @LastEditors: unicom
+ * @LastEditTime: 2021-01-05 16:51:31
  */
 import axios from 'axios'
-import { Message, Loading } from 'element-ui'
 const getService = (ip) => {
   // create an axios instance
   const service = axios.create({

@@ -1,7 +1,7 @@
 'use strict'
 const path = require('path')
 const defaultSettings = require('./src/settings.js')
-let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 // const CompressionPlugin = require('compression-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 
@@ -27,7 +27,7 @@ module.exports = {
    * In most cases please use '/' !!!
    * Detail: https://cli.vuejs.org/config/#publicpath
    */
-  publicPath: process.env.NODE_ENV === "production" ? "/vue-admin" : "./",
+  publicPath: process.env.NODE_ENV === 'production' ? '/vue-admin' : './',
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
@@ -35,13 +35,13 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-       prependData: 
+        prependData:
        `@import '@/styles/index.scss';`
       }
     }
   },
   devServer: {
-   proxy: {
+    proxy: {
       '/api': {
         target: 'http://47.100.186.132/your-path/api',
         ws: true,
@@ -83,19 +83,19 @@ module.exports = {
         include: 'initial'
       }
     ])
-     // stylelint配置
-     config.plugin('stylelint').use(StyleLintPlugin, [
-        {
-            files: ['**/*.{html,vue,css,sass,scss}'],
-            fix: true, // 自动修复
-            cache: true,
-            emitError: true,
-            failOnError: false
-        }
+    // stylelint配置
+    config.plugin('stylelint').use(StyleLintPlugin, [
+      {
+        files: ['**/*.{html,vue,css,sass,scss}'],
+        fix: true, // 自动修复
+        cache: true,
+        emitError: true,
+        failOnError: false
+      }
     ])
     if (process.env.NODE_ENV === 'production') {
-        //开启 Gzip
-       /*  const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i;
+      // 开启 Gzip
+      /*  const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i;
         config.plugin('compressionPlugin')
         .use(new CompressionPlugin({
             filename: '[path].gz[query]',
