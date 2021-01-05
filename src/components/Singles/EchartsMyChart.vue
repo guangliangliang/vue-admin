@@ -4,13 +4,14 @@
  * @Autor: unicom
  * @Date: 2021-01-02 12:46:14
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-02 14:06:57
+ * @LastEditTime: 2021-01-03 17:05:33
 -->
 <template>
   <div ref="echarts" :class="className" :style="{ height:height,width:width }" />
 </template>
 <script>
 import EchartsMyChacrt from '@/layout/mixin/EchartsMyChacrt'
+import 'echarts/map/js/china.js'
 export default {
   name: 'EchartsMyChart',
   mixins: [EchartsMyChacrt],

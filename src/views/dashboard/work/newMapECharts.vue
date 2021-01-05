@@ -4,26 +4,27 @@
  * @Autor: gll
  * @Date: 2020-11-27 16:37:05
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-02 14:42:32
+ * @LastEditTime: 2021-01-03 17:37:49
 -->
 <template>
   <EchartsMyChart
-    :options="options"
+    :options="Options()"
   />
 </template>
 <script>
+import 'echarts/map/js/china.js'
+import 'echarts-gl'
 export default {
   name: 'NewMapECharts',
   data() {
     return {
-      options: {}
     }
   },
   mounted() {
-    this.initOptions()
+
   },
   methods: {
-    initOptions() {
+    Options() {
       const dataInfo = []
       const geoCoordMap = {
         '海门': [121.15, 31.89],
@@ -233,8 +234,7 @@ export default {
         return res
       }
       const option = {
-        backgroundColor: '#000',
-        // backgroundColor: '#19193b',
+        backgroundColor: '#19193b',
         tooltip: {
           show: true,
           formatter: (params) => {
@@ -256,7 +256,7 @@ export default {
           label: {
             show: true,
             textStyle: {
-              color: '#fff', // 地图初始化区域字体颜色
+              color: 'black', // 地图初始化区域字体颜色
               fontSize: 12,
               opacity: 1,
               backgroundColor: 'rgba(0,0,0,0)'
@@ -267,7 +267,7 @@ export default {
             label: {
               show: false,
               textStyle: {
-                color: '#fff',
+                color: 'red',
                 fontSize: 16,
                 backgroundColor: '#206ea5'
               }
@@ -310,7 +310,7 @@ export default {
             convertData(dataInfo)
         }]
       }
-      this.options = option
+      return option
     }
   }
 }
