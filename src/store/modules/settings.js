@@ -1,11 +1,13 @@
 import defaultSettings from '@/settings'
-
+import config from '@/config'
+const { animate } = config
 const { showSettings, fixedHeader, sidebarLogo } = defaultSettings
 
 const state = {
   showSettings: showSettings,
   fixedHeader: fixedHeader,
-  sidebarLogo: sidebarLogo
+  sidebarLogo: sidebarLogo,
+  animate
 }
 
 const mutations = {

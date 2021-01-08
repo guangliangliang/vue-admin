@@ -141,6 +141,9 @@ export default {
 </style>
 <style lang="scss">
   .tab_header{
+    .contextmenu{
+      width: 120px !important;
+    }
      .el-tabs__nav{
       @include bgWhite();
     }

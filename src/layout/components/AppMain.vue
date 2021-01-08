@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: gll
  * @Date: 2020-12-24 09:46:02
- * @LastEditors: gll
- * @LastEditTime: 2020-12-24 15:39:11
+ * @LastEditors: unicom
+ * @LastEditTime: 2021-01-08 15:18:27
 -->
 <template>
   <div class="app-main">
@@ -12,25 +12,26 @@
       <TabHeader />
     </div>
     <div class="app_main_content">
-      <transition
-        class="animate__animated"
-        enter-active-class="animate__animated animate__fadeIn"
-        leave-active-class="animate__animated animate__fadeOut"
-        :duration="{ enter: 200, leave: 400 }"
+      <PageToggleTransition
+        :disabled="animate.disabled"
+        :animate="animate.name"
+        :direction="animate.direction"
       >
         <router-view :key="key" />
-      </transition>
+      </PageToggleTransition>
     </div>
   </div>
 </template>
 <script>
 import TabHeader from '@/layout/components/TabHeader'
+import { mapState } from 'vuex'
 export default {
   name: 'AppMain',
   components: {
     TabHeader
   },
   computed: {
+    ...mapState('settings', ['animate']),
     key() {
       return this.$route.path
     }

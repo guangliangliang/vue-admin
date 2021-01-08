@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: gll
  * @Date: 2020-12-05 16:35:34
- * @LastEditors: gll
- * @LastEditTime: 2020-12-11 14:38:48
+ * @LastEditors: unicom
+ * @LastEditTime: 2021-01-08 15:20:14
  */
 export default {
   /**
@@ -23,5 +23,10 @@ export default {
   baseUrl: {
     dev: 'https://www.easy-mock.com/mock/5add9213ce4d0e69998a6f51/iview-admin/',
     pro: 'https://produce.com'
+  },
+  animate: {
+    name: 'bounce',
+    direction: 'left',
+    disabled: false
   }
 }
