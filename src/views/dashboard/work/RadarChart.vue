@@ -4,7 +4,7 @@
  * @Autor: gll
  * @Date: 2020-11-27 16:37:05
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-08 14:23:00
+ * @LastEditTime: 2021-01-08 15:25:22
 -->
 <template>
   <EchartsBox
@@ -112,7 +112,6 @@ export default {
           label: {
             show: true,
             formatter: function(params) {
-              console.log(params)
               return params.value + '万'
             },
             color: '#8E88FE',

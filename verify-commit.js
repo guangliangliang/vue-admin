@@ -14,7 +14,6 @@ const msg = require('fs')
 const commitRE = /^(feat|fix|docs|style|refactor|perf|test|workflow|build|ci|chore|release|workflow)(\(.+\))?: .{1,50}/
 
 if (!commitRE.test(msg)) {
-  console.log()
   console.error(`
         不合法的 commit 消息格式。
         请查看 git commit 提交规范：https://github.com/guangliangliang/vue-admin/blob/master/gitCommitConfig.md

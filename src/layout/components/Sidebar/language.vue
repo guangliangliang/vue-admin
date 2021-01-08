@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: gll
  * @Date: 2020-12-05 15:07:16
- * @LastEditors: gll
- * @LastEditTime: 2020-12-11 14:39:09
+ * @LastEditors: unicom
+ * @LastEditTime: 2021-01-08 16:08:58
 -->
 <template>
   <div>
@@ -24,6 +24,7 @@
 export default {
   name: 'Language',
   props: {
+    // eslint-disable-next-line vue/require-default-prop
     lang: String
   },
   data() {

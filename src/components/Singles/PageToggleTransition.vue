@@ -4,7 +4,7 @@
  * @Autor: unicom
  * @Date: 2021-01-08 14:38:54
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-08 14:43:21
+ * @LastEditTime: 2021-01-08 16:10:20
 -->
 <template>
   <transition
@@ -32,7 +32,7 @@ export default {
     animate: {
       type: String,
       validator(value) {
-        return animates.findIndex(item => item.name == value) != -1
+        return animates.findIndex(item => item.name === value) !== -1
       },
       default: 'bounce'
     },
@@ -59,18 +59,18 @@ export default {
   },
   methods: {
     activeClass(isLeave) {
-      const animate = animates.find(item => this.animate == item.name)
-      if (animate == undefined) {
+      const animate = animates.find(item => this.animate === item.name)
+      if (animate === undefined) {
         return ''
       }
       let direction = ''
-      if (this.direction == undefined) {
+      if (this.direction === undefined) {
         direction = animate.directions[0]
       } else {
-        direction = animate.directions.find(item => item == this.direction)
+        direction = animate.directions.find(item => item === this.direction)
       }
-      direction = (direction == undefined || direction === 'default') ? '' : direction
-      if (direction != '') {
+      direction = (direction === undefined || direction === 'default') ? '' : direction
+      if (direction !== '') {
         direction = isLeave && this.reverse ? this.reversePosition(direction, animate.directions) : direction
         direction = direction[0].toUpperCase() + direction.substring(1)
       }
@@ -78,11 +78,11 @@ export default {
       return animate.name + t + direction
     },
     reversePosition(direction, directions) {
-      if (direction.length == 0 || direction == 'x' || direction == 'y') {
+      if (direction.length === 0 || direction === 'x' || direction === 'y') {
         return direction
       }
       let index = directions.indexOf(direction)
-      index = (index % 2 == 1) ? index - 1 : index + 1
+      index = (index % 2 === 1) ? index - 1 : index + 1
       return directions[index]
     }
   }

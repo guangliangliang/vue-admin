@@ -4,7 +4,7 @@
  * @Autor: gll
  * @Date: 2020-11-27 16:37:05
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-02 14:39:22
+ * @LastEditTime: 2021-01-08 15:26:34
 -->
 <template>
   <div class="content_projects">
@@ -190,7 +190,6 @@ export default {
         buildPath: function(ctx, shape) {
         // 会canvas的应该都能看得懂，shape是从custom传入的
           const xAxisPoint = shape.xAxisPoint
-          console.log(shape)
           const c0 = [shape.x + 17, shape.y]
           const c1 = [shape.x - 23, shape.y - 6]
           const c2 = [xAxisPoint[0] - 23, xAxisPoint[1] - 13]

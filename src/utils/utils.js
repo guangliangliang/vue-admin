@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 
 import config from '@/config'
 const { useI18n } = config
@@ -41,6 +42,7 @@ export function getImage(name) {
 
 /* echarts 图片下载 */
 export function downloadImpByChart(chartId, filename) {
+  // eslint-disable-next-line no-undef
   const myChart = echarts.getInstanceByDom(document.getElementById(chartId))
   const url = myChart.getConnectedDataURL({
     pixelRatio: 5, // 导出的图片分辨率比率,默认是1

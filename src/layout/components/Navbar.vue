@@ -55,10 +55,16 @@ export default {
       'local'
     ])
   },
+  // eslint-disable-next-line vue/order-in-components
   data() {
     return {
       isFullscreen: false // false非全屏状态、true全屏状态
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.setLocal(this.local)
+    })
   },
   methods: {
     ...mapMutations('app', [
