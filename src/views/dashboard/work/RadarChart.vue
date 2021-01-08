@@ -4,7 +4,7 @@
  * @Autor: gll
  * @Date: 2020-11-27 16:37:05
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-02 14:49:52
+ * @LastEditTime: 2021-01-08 14:23:00
 -->
 <template>
   <EchartsBox
@@ -63,6 +63,7 @@ export default {
               //         '{a|'+name+'}{b|'+indicator.value+'万}'
               //     ]
               //   }else{
+              // eslint-disable-next-line prefer-const
               arr = [
                 '{a|' + name + '}'
               ]
