@@ -5,8 +5,8 @@
     <breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu">
-      <FullScreen />&nbsp;&nbsp;&nbsp;
-      <Language style="margin-right: 10px;" :lang="local" @on-lang-change="setLocal" />
+      <FullScreen class="right-menu-margin" />
+      <Language class="right-menu-margin" :lang="local" @on-lang-change="setLocal" />
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
@@ -116,6 +116,9 @@ export default {
         &:focus {
             outline: none;
         }
+        .right-menu-margin{
+          margin:0 5px;
+        }
 
         .right-menu-item {
             display: inline-block;
@@ -136,11 +139,9 @@ export default {
         }
 
         .avatar-container {
-            margin-right: 30px;
-
             .avatar-wrapper {
                 position: relative;
-                margin-top: 5px;
+                @include defaultFlex();
 
                 .user-avatar {
                     width: 40px;
@@ -150,9 +151,6 @@ export default {
                 }
 
                 .el-icon-caret-bottom {
-                    position: absolute;
-                    top: 25px;
-                    right: -20px;
                     font-size: 12px;
                     cursor: pointer;
                 }
@@ -160,4 +158,12 @@ export default {
         }
     }
 }
+</style>
+<style lang="scss">
+  .navbar{
+    .el-dropdown{
+          margin-right: 5px;
+    }
+  }
+
 </style>

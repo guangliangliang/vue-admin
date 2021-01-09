@@ -1,12 +1,20 @@
+<!--
+ * @Description:
+ * @Version: 1.0
+ * @Autor: unicom
+ * @Date: 2020-12-24 09:46:02
+ * @LastEditors: unicom
+ * @LastEditTime: 2021-01-09 09:48:14
+-->
 <template>
   <div :class="classObj" class="app-wrapper">
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
-    <sidebar class="sidebar-container" />
+    <Sidebar class="sidebar-container" />
     <div class="main-container">
       <div :class="{'fixed-header':fixedHeader}">
-        <navbar />
+        <Navbar />
       </div>
-      <app-main />
+      <AppMain />
     </div>
   </div>
 </template>
@@ -20,7 +28,8 @@ export default {
   components: {
     Navbar,
     Sidebar,
-    AppMain
+    AppMain,
+    Setting
   },
   mixins: [ResizeMixin],
   computed: {
