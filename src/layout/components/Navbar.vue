@@ -1,9 +1,12 @@
 <template>
   <div class="navbar">
-    <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
-
-    <breadcrumb class="breadcrumb-container" />
-
+    <Hamburger v-if="!ifHorizontal" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
+    <template v-if="ifHorizontal">
+      <div class="left-menu">
+        <Logo />
+        <Menu />
+      </div>
+    </template>
     <div class="right-menu">
       <FullScreen class="right-menu-margin" />
       <Language class="right-menu-margin" :lang="local" @on-lang-change="setLocal" />
@@ -35,24 +38,33 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
-import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 import Language from '@/layout/components/Sidebar/language'
 import FullScreen from '@/layout/components/Sidebar/FullScreen'
+import Menu from '@/layout/components/Sidebar/Menu'
+import Logo from '@/layout/components/Sidebar/Logo'
+
 export default {
   components: {
-    Breadcrumb,
     Hamburger,
     Language,
-    FullScreen
+    FullScreen,
+    Menu,
+    Logo
   },
   computed: {
+    ifHorizontal() {
+      return this.mode === 'horizontal'
+    },
     ...mapGetters([
       'sidebar',
       'avatar'
     ]),
     ...mapGetters('app', [
       'local'
+    ]),
+    ...mapGetters('settings', [
+      'mode'
     ])
   },
   // eslint-disable-next-line vue/order-in-components
@@ -101,11 +113,11 @@ export default {
             background: rgba(0, 0, 0, .025)
         }
     }
-
-    .breadcrumb-container {
-        float: left;
+    .left-menu{
+      display: flex;
+      width: 50%;
+      float: left;
     }
-
     .right-menu {
         display:flex;
         float: right;
@@ -162,7 +174,10 @@ export default {
 <style lang="scss">
   .navbar{
     .el-dropdown{
-          margin-right: 5px;
+       margin-right: 5px;
+    }
+    .sidebar-logo-container{
+      width: 150px;
     }
   }
 

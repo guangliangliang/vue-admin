@@ -4,11 +4,12 @@
  * @Autor: gll
  * @Date: 2020-12-24 09:46:02
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-08 15:18:27
+ * @LastEditTime: 2021-01-09 15:19:22
 -->
 <template>
   <div class="app-main">
     <div class="app_main_top">
+      <Breadcrumb class="breadcrumb-container" />
       <TabHeader />
     </div>
     <div class="app_main_content">
@@ -24,11 +25,13 @@
 </template>
 <script>
 import TabHeader from '@/layout/components/TabHeader'
+import Breadcrumb from '@/components/Breadcrumb'
 import { mapState } from 'vuex'
 export default {
   name: 'AppMain',
   components: {
-    TabHeader
+    TabHeader,
+    Breadcrumb
   },
   computed: {
     ...mapState('settings', ['animate']),
@@ -46,6 +49,9 @@ export default {
     min-height: calc(100vh - 50px);
     overflow: hidden;
     background: rgb(240, 242, 245);
+    .breadcrumb-container {
+        // float: left;
+    }
     .app_main_top{
         @include defaultWH(10%);
         padding:20px 20px 0 20px;

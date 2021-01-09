@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @Version: 1.0
+ * @Autor: unicom
+ * @Date: 2021-01-08 14:25:16
+ * @LastEditors: unicom
+ * @LastEditTime: 2021-01-09 14:34:35
+ */
 import Cookies from 'js-cookie'
 
 const state = {
@@ -9,7 +17,9 @@ const state = {
   device: 'desktop'
 }
 const getters = {
-  local: state => state.local
+  local: state => state.local,
+  device: state => state.device,
+  sidebar: state => state.sidebar
 }
 const mutations = {
   TOGGLE_SIDEBAR: state => {

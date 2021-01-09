@@ -4,7 +4,7 @@
  * @Autor: unicom
  * @Date: 2020-12-24 09:46:02
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-09 11:51:08
+ * @LastEditTime: 2021-01-09 14:34:02
  */
 import defaultSettings from '@/config'
 const { showSettings, fixedHeader, sidebarLogo, settings } = defaultSettings
@@ -15,7 +15,13 @@ const state = {
   sidebarLogo: sidebarLogo,
   ...settings
 }
-
+const settingsTemp = {}
+Object.keys(settings).map(item => {
+  settingsTemp[item] = state => state[item]
+})
+const getters = {
+  ...settingsTemp
+}
 const mutations = {
   CHANGE_SETTING: (state, { key, value }) => {
     // eslint-disable-next-line no-prototype-builtins
@@ -35,6 +41,7 @@ export default {
   namespaced: true,
   state,
   mutations,
-  actions
+  actions,
+  getters
 }
 

@@ -4,7 +4,7 @@
  * @Autor: gll
  * @Date: 2020-12-05 16:35:34
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-09 11:29:41
+ * @LastEditTime: 2021-01-09 14:53:54
  */
 export default {
   /**
@@ -42,7 +42,7 @@ export default {
       direction: 'left',
       disabled: false
     },
-    mode: 'vertical',
+    mode: 'vertical', // vertical  或者 horizontal
     themeColor: '#f67a17'
   }
 }

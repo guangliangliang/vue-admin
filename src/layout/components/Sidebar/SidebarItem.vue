@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!item.hidden">
+  <div v-if="!item.hidden" :class="{'horizontalClass':mode==='horizontal'}">
     <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
         <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{'submenu-title-noDropdown':!isNest}">
@@ -30,6 +30,7 @@ import Item from './Item'
 import AppLink from './Link'
 import FixiOSBug from './FixiOSBug'
 import { showTitle } from '@/utils/utils'
+import { mapGetters } from 'vuex'
 export default {
   name: 'SidebarItem',
   components: { Item, AppLink },
@@ -56,6 +57,7 @@ export default {
     return {}
   },
   computed: {
+    ...mapGetters('settings', ['mode']),
     showTitle() {
       const { item } = this
       return showTitle(item, this)
@@ -102,3 +104,8 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+    .horizontalClass{
+      display: inline-block
+    }
+</style>
