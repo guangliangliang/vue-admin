@@ -4,7 +4,7 @@
  * @Autor: unicom
  * @Date: 2021-01-09 16:42:49
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-09 21:19:08
+ * @LastEditTime: 2021-01-09 22:01:32
 -->
 <template>
   <div class="side-setting">
@@ -69,6 +69,8 @@ import SettingItem from './SettingItem'
 import { mapState, mapMutations } from 'vuex'
 import ChangeColor from '@/views/dashboard/analyse/changeColor'
 import { ImgCheckbox } from '@/components/Checkbox'
+import { settings } from '@/config'
+import { changeThemeColor } from '@/utils/themeColorClient'
 const { Group: ImgCheckboxGroup } = ImgCheckbox
 export default {
   name: 'Setting',
@@ -104,13 +106,33 @@ export default {
       localStorage.setItem(process.env.VUE_APP_SETTING_KEY, JSON.stringify(config))
       setTimeout(closeMessage, 800)
     },
+    resetData() {
+      const { animate, mode, themeColor, fixedHeader } = settings
+      this.setAnimate(animate)
+      this.setMode(mode)
+      this.setFixedHeader(fixedHeader)
+      // changeThemeColor(themeColor)
+      //   .then(t => console.log('主题色切换成功~'))
+    },
     resetSetting() {
-      this.$confirm({
-        title: '重置主题会刷新页面，当前页面内容不会保留，确认重置？',
-        onOk() {
-          localStorage.removeItem(process.env.VUE_APP_SETTING_KEY)
-          window.location.reload()
-        }
+      const { resetData } = this
+      this.$confirm('重置主题会刷新页面，当前页面内容不会保留，确认重置？', '确认信息', {
+        distinguishCancelAndClose: true,
+        cancelButtonText: '取消',
+        confirmButtonText: '确定'
+      }).then(() => {
+        // resetData()
+        localStorage.removeItem(process.env.VUE_APP_SETTING_KEY)
+        window.location.reload()
+        this.$message({
+          type: 'success',
+          message: '重置成功'
+        })
+      }).catch(action => {
+        this.$message({
+          type: 'info',
+          message: '取消重置'
+        })
       })
     },
     ...mapMutations('settings', ['setAnimate', 'setMode', 'setFixedHeader'])
