@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: gll
  * @Date: 2020-12-05 14:37:22
- * @LastEditors: gll
- * @LastEditTime: 2020-12-24 14:30:23
+ * @LastEditors: unicom
+ * @LastEditTime: 2021-01-09 13:57:33
  */
 export default {
   dashboard: '主页',
@@ -13,7 +13,7 @@ export default {
   tree: '树',
   form: '表单',
   work: '工作页',
-  analyse: '分析页',
+  analyse: '主题',
   closeLeft: '关闭左侧',
   closeRight: '关闭右侧',
   closeOthers: '关闭其他',

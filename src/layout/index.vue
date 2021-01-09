@@ -4,7 +4,7 @@
  * @Autor: unicom
  * @Date: 2020-12-24 09:46:02
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-09 09:48:14
+ * @LastEditTime: 2021-01-09 11:48:25
 -->
 <template>
   <div :class="classObj" class="app-wrapper">
@@ -28,8 +28,7 @@ export default {
   components: {
     Navbar,
     Sidebar,
-    AppMain,
-    Setting
+    AppMain
   },
   mixins: [ResizeMixin],
   computed: {

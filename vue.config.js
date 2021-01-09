@@ -1,9 +1,12 @@
 'use strict'
 const path = require('path')
-const defaultSettings = require('./src/settings.js')
+const defaultSettings = require('./src/config/reqIndex')
+// eslint-disable-next-line no-unused-vars
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 // const CompressionPlugin = require('compression-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin')
+const themePlugin = require('./webpack/themePlugin')
+const JoinFileContentPlugin = require('join-file-content-plugin')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -65,6 +68,13 @@ module.exports = {
     name: name,
     plugins: [
       // new BundleAnalyzerPlugin()//添加分析页面
+      // 将theme-changed.scss应用到element-ui，供babel-plugin-component按需加载
+      new JoinFileContentPlugin({
+        file: 'node_modules/element-theme-chalk/src/common/var.scss',
+        prependFile: 'src/styles/element-var-changed.scss'
+      }),
+      // 生成仅包含颜色的替换样式（主题色等）
+      themePlugin
     ],
     resolve: {
       alias: {

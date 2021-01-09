@@ -1,7 +1,13 @@
-import defaultSettings from '@/settings'
-import config from '@/config'
-const { settings } = config
-const { showSettings, fixedHeader, sidebarLogo } = defaultSettings
+/*
+ * @Description:
+ * @Version: 1.0
+ * @Autor: unicom
+ * @Date: 2020-12-24 09:46:02
+ * @LastEditors: unicom
+ * @LastEditTime: 2021-01-09 11:51:08
+ */
+import defaultSettings from '@/config'
+const { showSettings, fixedHeader, sidebarLogo, settings } = defaultSettings
 
 const state = {
   showSettings: showSettings,

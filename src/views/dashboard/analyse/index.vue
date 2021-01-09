@@ -1,22 +1,23 @@
+<!--
+ * @Description:
+ * @Version: 1.0
+ * @Autor: unicom
+ * @Date: 2020-12-24 09:50:12
+ * @LastEditors: unicom
+ * @LastEditTime: 2021-01-09 11:59:38
+-->
 <template>
   <div class="app-container">
-    <el-input v-model="filterText" placeholder="Filter keyword" style="margin-bottom:30px;" />
-
-    <el-tree
-      ref="tree2"
-      :data="data2"
-      :props="defaultProps"
-      :filter-node-method="filterNode"
-      class="filter-tree"
-      default-expand-all
-    />
-
+    <ThemeColor />
   </div>
 </template>
 
 <script>
+import ThemeColor from './themeColor.vue'
 export default {
-
+  components: {
+    ThemeColor
+  },
   data() {
     return {
       filterText: '',

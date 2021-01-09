@@ -4,7 +4,7 @@
  * @Autor: gll
  * @Date: 2020-11-27 16:37:05
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-02 14:27:02
+ * @LastEditTime: 2021-01-09 12:03:29
  */
 import Vue from 'vue'
 
@@ -55,6 +55,7 @@ import i18n from '@/locale'
 Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
+import { initThemeColor } from '@/utils/themeColorClient'
 
 // 全局组件
 import singleIndex from '@/components/Singles'
@@ -80,7 +81,7 @@ Vue.prototype.$throw = (error) => errorHandler(error, this)
  * .catch(e =>　this.$throw(e))
  */
 Vue.use(animated)
-
+initThemeColor()
 new Vue({
   el: '#app',
   router,

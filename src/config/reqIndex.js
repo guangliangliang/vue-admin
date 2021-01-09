@@ -1,12 +1,12 @@
 /*
  * @Description:
  * @Version: 1.0
- * @Autor: gll
- * @Date: 2020-12-05 16:35:34
+ * @Autor: unicom
+ * @Date: 2021-01-09 11:34:33
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-09 11:29:41
+ * @LastEditTime: 2021-01-09 11:39:23
  */
-export default {
+module.exports = {
   /**
    * @description 配置显示在浏览器标签的title
    */
