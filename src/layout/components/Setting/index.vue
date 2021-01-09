@@ -4,25 +4,25 @@
  * @Autor: unicom
  * @Date: 2021-01-08 21:31:46
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-09 11:46:23
+ * @LastEditTime: 2021-01-09 17:35:43
 -->
 <template>
   <div class="settings">
-    <!--  <drawer v-if="!hideSetting" v-model="drawerOpen" placement="right">
+    <drawer v-model="drawerOpen" placement="right">
       <div slot="handler" class="setting">
-        <el-button slot="handler" type="primary" style="margin-left: 16px;" @click="drawerOpen = !drawerOpen">
-          <span v-text="drawerOpen?'开':'关'" />
-        </el-button>
+        <i :class="`el-icon-${drawerOpen?'close':'setting'} setting-icon`" />
       </div>
-      <span>ssss</span>
-    </drawer> -->
+      <Setting />
+    </drawer>
   </div>
 </template>
 <script>
-// import Drawer from '@/components/Tools/Drawer'
+import Drawer from '@/components/Tools/Drawer'
+import Setting from '@/layout/components/Setting/setting'
 export default {
   components: {
-    // Drawer
+    Drawer,
+    Setting
   },
   data() {
     return {
@@ -34,7 +34,10 @@ export default {
 <style lang="scss" scoped>
     .settings{
         position:absolute;
-        top:40%;
         right:0;
+    }
+    .setting-icon{
+        font-size: 40px;
+        color: blue;
     }
 </style>

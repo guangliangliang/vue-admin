@@ -58,14 +58,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$shadow-color : '#fff';
+$shadow-color : rgba(0,0,0,.15);
   .mask{
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
     top: 0;
-    background-color: $shadow-color;
+    background-color: $shadow-color ;
     transition: all 0.5s;
     z-index: 100;
     &.open{
@@ -122,7 +122,7 @@ $shadow-color : '#fff';
     .handler {
       height: 40px;
       width: 40px;
-      background-color: '#fff';
+      background-color: #fff;
       font-size: 26px;
       box-shadow: 0 2px 8px $shadow-color;
       line-height: 40px;

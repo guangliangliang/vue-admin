@@ -4,8 +4,9 @@
  * @Autor: gll
  * @Date: 2020-12-05 16:35:34
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-09 14:53:54
+ * @LastEditTime: 2021-01-09 21:17:11
  */
+import { preset } from '@/config/default/animate.config'
 export default {
   /**
    * @description 配置显示在浏览器标签的title
@@ -42,7 +43,9 @@ export default {
       direction: 'left',
       disabled: false
     },
+    animates: preset,
     mode: 'vertical', // vertical  或者 horizontal
-    themeColor: '#f67a17'
+    themeColor: '#f67a17',
+    fixedHeader: false
   }
 }

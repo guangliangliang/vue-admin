@@ -1,5 +1,10 @@
 <template>
-  <div class="navbar">
+  <div
+    class="navbar"
+    :style="{
+      background:ifHorizontal?'rgb(48, 65, 86)':' #fff'
+    }"
+  >
     <Hamburger v-if="!ifHorizontal" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
     <template v-if="ifHorizontal">
       <div class="left-menu">

@@ -4,18 +4,14 @@
  * @Autor: unicom
  * @Date: 2021-01-09 11:53:45
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-09 12:01:29
+ * @LastEditTime: 2021-01-09 20:48:46
 -->
 <template>
   <el-color-picker v-model="mainColor" size="small" @change="changeColor" />
 </template>
 
 <script>
-import Vue from 'vue'
-import { ColorPicker } from 'element-ui'
 import { changeThemeColor, curColor } from '@/utils/themeColorClient'
-
-Vue.use(ColorPicker)
 
 export default {
   data() {

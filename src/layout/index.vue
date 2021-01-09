@@ -4,14 +4,15 @@
  * @Autor: unicom
  * @Date: 2020-12-24 09:46:02
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-09 16:03:32
+ * @LastEditTime: 2021-01-09 21:36:44
 -->
 <template>
   <div :class="classObj" class="app-wrapper">
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <Sidebar v-if="ifVertical" class="sidebar-container" />
+    <Setting />
     <div class="main-container" :style="{marginLeft:ifVertical?'210px':'0px !important'}">
-      <div :class="{'fixed-header':fixedHeader}">
+      <div :class="{'fixed-header':fixedHeader}" :style="{width:widthVal}">
         <Navbar />
       </div>
       <AppMain />
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-import { Navbar, Sidebar, AppMain } from './components'
+import { Navbar, Sidebar, AppMain, Setting } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 import { mapGetters, mapActions } from 'vuex'
 export default {
@@ -28,7 +29,8 @@ export default {
   components: {
     Navbar,
     Sidebar,
-    AppMain
+    AppMain,
+    Setting
   },
   mixins: [ResizeMixin],
   mounted() {
@@ -37,6 +39,17 @@ export default {
   computed: {
     ifVertical() {
       return this.mode === 'vertical'
+    },
+    widthVal() {
+      const result = '100%'
+      const { fixedHeader, sidebar, mode } = this
+      if (mode === 'horizontal') {
+        return result
+      }
+      if (!fixedHeader) {
+        return result
+      }
+      return sidebar.opened ? 'calc(100% - 210px)' : ' calc(100% - 54px)'
     },
     ...mapGetters('settings', [
       'mode', 'fixedHeader'
@@ -62,3 +75,13 @@ export default {
 }
 </script>
 
+<style lang="scss" scoped>
+.main-container{
+      .fixed-header {
+          position: fixed;
+          height: 50px;
+          width: 100%;
+          z-index: 100;
+    }
+}
+</style>

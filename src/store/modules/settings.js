@@ -4,7 +4,7 @@
  * @Autor: unicom
  * @Date: 2020-12-24 09:46:02
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-09 14:34:02
+ * @LastEditTime: 2021-01-09 21:16:56
  */
 import defaultSettings from '@/config'
 const { showSettings, fixedHeader, sidebarLogo, settings } = defaultSettings
@@ -28,6 +28,15 @@ const mutations = {
     if (state.hasOwnProperty(key)) {
       state[key] = value
     }
+  },
+  setAnimate(state, animate) {
+    state.animate = animate
+  },
+  setMode(state, mode) {
+    state.mode = mode
+  },
+  setFixedHeader(state, flag) {
+    state.fixedHeader = flag
   }
 }
 
