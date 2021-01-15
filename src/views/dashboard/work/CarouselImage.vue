@@ -4,7 +4,7 @@
  * @Autor: gll
  * @Date: 2020-11-27 16:37:05
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-02 15:32:03
+ * @LastEditTime: 2021-01-15 11:23:41
 -->
 <template>
   <SwiperBox>
@@ -14,6 +14,7 @@
   </SwiperBox>
 </template>
 <script>
+// eslint-disable-next-line no-unused-vars
 import { SwiperSlide, Swiper } from 'vue-awesome-swiper'
 export default {
   name: 'CarouselImage',

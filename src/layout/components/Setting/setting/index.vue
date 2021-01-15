@@ -4,7 +4,7 @@
  * @Autor: unicom
  * @Date: 2021-01-09 16:42:49
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-09 22:01:32
+ * @LastEditTime: 2021-01-15 11:18:55
 -->
 <template>
   <div class="side-setting">
@@ -70,6 +70,7 @@ import { mapState, mapMutations } from 'vuex'
 import ChangeColor from '@/views/dashboard/analyse/changeColor'
 import { ImgCheckbox } from '@/components/Checkbox'
 import { settings } from '@/config'
+// eslint-disable-next-line no-unused-vars
 import { changeThemeColor } from '@/utils/themeColorClient'
 const { Group: ImgCheckboxGroup } = ImgCheckbox
 export default {
@@ -84,7 +85,7 @@ export default {
   },
   computed: {
     directions() {
-      return this.animates.find(item => item.name == this.animate.name).directions
+      return this.animates.find(item => item.name === this.animate.name).directions
     },
     ...mapState('settings', ['animate', 'animates', 'mode', 'fixedHeader'])
   },
@@ -107,6 +108,7 @@ export default {
       setTimeout(closeMessage, 800)
     },
     resetData() {
+      // eslint-disable-next-line no-unused-vars
       const { animate, mode, themeColor, fixedHeader } = settings
       this.setAnimate(animate)
       this.setMode(mode)
@@ -115,6 +117,7 @@ export default {
       //   .then(t => console.log('主题色切换成功~'))
     },
     resetSetting() {
+      // eslint-disable-next-line no-unused-vars
       const { resetData } = this
       this.$confirm('重置主题会刷新页面，当前页面内容不会保留，确认重置？', '确认信息', {
         distinguishCancelAndClose: true,

@@ -4,7 +4,7 @@
  * @Autor: gll
  * @Date: 2020-11-27 16:37:05
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-09 12:03:29
+ * @LastEditTime: 2021-01-15 11:22:28
  */
 import Vue from 'vue'
 
@@ -77,9 +77,6 @@ const errorHandler = (error, vm) => {
 }
 Vue.config.errorHandler = errorHandler
 Vue.prototype.$throw = (error) => errorHandler(error, this)
-/**
- * .catch(e =>　this.$throw(e))
- */
 Vue.use(animated)
 initThemeColor()
 new Vue({

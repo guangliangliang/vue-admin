@@ -67,7 +67,7 @@ module.exports = {
     // it can be accessed in index.html to inject the correct title.
     name: name,
     plugins: [
-      // new BundleAnalyzerPlugin()//添加分析页面
+      new BundleAnalyzerPlugin(), // 添加分析页面
       // 将theme-changed.scss应用到element-ui，供babel-plugin-component按需加载
       new JoinFileContentPlugin({
         file: 'node_modules/element-theme-chalk/src/common/var.scss',

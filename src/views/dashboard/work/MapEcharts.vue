@@ -4,7 +4,7 @@
  * @Autor: unicom
  * @Date: 2021-01-02 14:21:21
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-02 14:41:21
+ * @LastEditTime: 2021-01-15 11:24:13
 -->
 <template>
   <div id="mapChart" ref="mapChart" />
@@ -114,7 +114,7 @@ export default {
             zlevel: 99999
           }
         ]
-      }),
+      })
       window.addEventListener('resize', () => {
         // 自动渲染echarts
         mapChart.resize()

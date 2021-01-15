@@ -4,7 +4,7 @@
  * @Autor: unicom
  * @Date: 2021-01-09 16:42:50
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-09 17:28:26
+ * @LastEditTime: 2021-01-15 11:19:06
 -->
 <template>
   <div class="setting-item">
@@ -16,6 +16,7 @@
 <script>
 export default {
   name: 'SettingItem',
+  // eslint-disable-next-line vue/require-prop-types
   props: ['title']
 }
 </script>

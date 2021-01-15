@@ -48,13 +48,13 @@ const Group = {
     handleChange(option) {
       if (!option.checked) {
         if (this.values.indexOf(option.value) > -1) {
-          this.values = this.values.filter(item => item != option.value)
+          this.values = this.values.filter(item => item !== option.value)
         }
       } else {
         if (!this.multiple) {
           this.values = [option.value]
           this.options.forEach(item => {
-            if (item.value != option.value) {
+            if (item.value !== option.value) {
               item.sChecked = false
             }
           })
@@ -88,9 +88,11 @@ export default {
       type: String,
       required: true
     },
+    // eslint-disable-next-line vue/require-prop-types
     value: {
       required: true
     },
+    // eslint-disable-next-line vue/require-default-prop
     title: String
   },
   data() {
@@ -132,6 +134,7 @@ export default {
       } else if (groupContext.multiple) {
         return groupContext.defaultValues.indexOf(this.value) > -1
       } else {
+        // eslint-disable-next-line eqeqeq
         return groupContext.defaultValues[0] == this.value
       }
     }

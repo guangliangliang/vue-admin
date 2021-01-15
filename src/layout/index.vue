@@ -4,7 +4,7 @@
  * @Autor: unicom
  * @Date: 2020-12-24 09:46:02
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-09 21:36:44
+ * @LastEditTime: 2021-01-15 11:21:28
 -->
 <template>
   <div :class="classObj" class="app-wrapper">
@@ -33,9 +33,6 @@ export default {
     Setting
   },
   mixins: [ResizeMixin],
-  mounted() {
-    // this.changeSetting({ key: 'mode', value: 'horizontal' })
-  },
   computed: {
     ifVertical() {
       return this.mode === 'vertical'
@@ -65,6 +62,9 @@ export default {
         mobile: this.device === 'mobile'
       }
     }
+  },
+  mounted() {
+    // this.changeSetting({ key: 'mode', value: 'horizontal' })
   },
   methods: {
     ...mapActions('settings', ['changeSetting']),

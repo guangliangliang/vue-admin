@@ -4,7 +4,7 @@
  * @Autor: gll
  * @Date: 2020-11-27 16:37:05
  * @LastEditors: unicom
- * @LastEditTime: 2021-01-02 14:56:20
+ * @LastEditTime: 2021-01-15 11:23:49
 -->
 <template>
   <div class="app_container">
@@ -86,6 +86,7 @@ export default {
     WordCoud,
     NewECharts,
     NewMapECharts,
+    // eslint-disable-next-line vue/no-unused-components
     MapEcharts,
     RadarChart,
     FunnelPlot,
