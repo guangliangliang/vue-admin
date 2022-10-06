@@ -16,6 +16,7 @@
 <script>
 // eslint-disable-next-line no-unused-vars
 import { SwiperSlide, Swiper } from 'vue-awesome-swiper'
+import swiperSrc from '@/assets/swiper.jpg'
 export default {
   name: 'CarouselImage',
   components: {
@@ -25,7 +26,7 @@ export default {
     data: {
       type: Array,
       default: () => Array.from(({ length: 12 }), (_, index) => ({
-        src: 'https://gitee.com/guangliangliang/images/raw/master/funny/哭.jpg'
+        src: swiperSrc
       }))
     }
   }
